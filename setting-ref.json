@@ -1,0 +1,30 @@
+{
+  // "editor.formatOnSave": true,
+  // 字形
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+
+  // 主題
+  "workbench.colorTheme": "One Monokai",
+
+  // 資料夾ICON
+  "workbench.iconTheme": "material-icon-theme",
+
+  // unKnow word by pass
+  "cSpell.userWords": ["browserslist", "uuidv"],
+
+  // 儲存後自動修復
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+
+  // Eslint
+  "eslint.alwaysShowStatus": true,
+
+  "eslint.options": {
+    "extensions": [".html", ".js", ".jsx"]
+  },
+
+  "eslint.validate": ["html", "react", "javascript"]
+}
