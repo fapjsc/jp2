@@ -1,0 +1,16 @@
+.container {
+  height: 100vh;
+  background-image: url("../assets/JP彩金2.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .content-box {
+    position: absolute;
+    top: 7.6%;
+    right: 7.9%;
+    height: 82.6%;
+    width: 55%;
+  }
+}

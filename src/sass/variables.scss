@@ -1,0 +1,17 @@
+@font-face {
+  font-family: cambria;
+  src: url("../font/CAMBRIAB.TTF") format("opentype");
+}
+
+@font-face {
+  font-family: cambriaIaz;
+  src: url("../font/CAMBRIAZ.TTF") format("opentype");
+}
+
+$flip-font-size-big: 4.5rem;
+$flip-speed: 2s;
+$flip-line-height: 1em;
+$flip-font-family: "cambria", sans-serif;
+$flip-font-family-iaz: "cambria", sans-serif;
+$flip_cubic-bezier: ease-in-out;
+$flip-font-color: #fff;
