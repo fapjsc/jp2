@@ -1,0 +1,59 @@
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae,
+  close: #ff7f82,
+  raise: #ffa260,
+  up: #e4cb58,
+  slide: #8fc866,
+  offset: #19bc8b,
+);
+
+.raise {
+  color: var(--color);
+  transition: 0.25s;
+  background-color: transparent;
+  font-size: 2em;
+  border-color: var(--color);
+  padding: 0.5em;
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: not-allowed;
+    animation: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      transform: translateY(0);
+      color: var(--color);
+      border-color: var(--color);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}

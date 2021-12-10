@@ -1,0 +1,25 @@
+.container {
+  width: 18%;
+  height: 18%;
+  transform: translateX(30%) translateY(50%);
+}
+
+.gold {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/gold.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: ratatat 1.8s linear infinite;
+}
+
+@keyframes ratatat {
+  from {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  to {
+    transform: perspective(1000px) rotateY(359deg);
+  }
+}

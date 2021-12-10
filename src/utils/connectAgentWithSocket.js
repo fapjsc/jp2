@@ -4,8 +4,16 @@ import config from '../config/config.json';
 // store
 import store from '../store';
 
+// Utils
+import { _getAmount } from './helpers';
+
 // actions
-import { setJackpotData } from '../store/actions/jackpotActions';
+import {
+  setJackpotData,
+  setWinningPrizeData,
+  setShowToast,
+  setServiceBell,
+} from '../store/actions/jackpotActions';
 
 const SERVER = config.AGENT_SERVER_IP;
 
@@ -32,6 +40,23 @@ export const connectAgent = () => {
 
     tmp = JSON.stringify(jackpotData);
     store.dispatch(setJackpotData(jackpotData));
+  });
+
+  socket.on('win-prize', (winPrizeData) => {
+    store.dispatch(
+      setWinningPrizeData({
+        ...winPrizeData,
+        amountWinning: _getAmount(winPrizeData.amountWinning),
+      }),
+    );
+
+    if (store.getState().jackpot.displayWinPrize) {
+      store.dispatch(setShowToast({ show: true, data: winPrizeData }));
+    }
+  });
+
+  socket.on('serviceBell', (data) => {
+    store.dispatch(setServiceBell(data));
   });
 };
 

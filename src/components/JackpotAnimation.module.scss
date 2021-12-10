@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url("../assets/content-bg.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .animation-box {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+  }
+
+  .animation-box[level="jackpot"] {
+    background-position: top;
+    background-size: 100% 100%;
+    background-image: url("../assets/winPrizeAnimation/jackpot.gif");
+    background-color: rgb(0 0 0 / 15%);
+  }
+
+  .animation-box[level="secondPrize"] {
+    background-image: url("../assets/winPrizeAnimation//secondPrize.gif");
+    background-size: 100% 100%;
+    background-position: 50% -100%;
+  }
+
+  .animation-box[level="thirdPrize"] {
+    background-image: url("../assets/winPrizeAnimation/thirdPrize.gif");
+    background-size: 60% 65%;
+    background-position: 50% -10%;
+  }
+
+  .animation-box[level="fourthPrize"] {
+    background-image: url("../assets/winPrizeAnimation/fourthPrize.gif");
+    background-size: 60% 65%;
+    background-position: 50% -10%;
+  }
+
+  .animation-box[level="fifthPrize"],
+  .animation-box[level="sixthPrize"] {
+    background-image: url("../assets/winPrizeAnimation/otherPrize.gif");
+    background-position: 50% 30%;
+    background-size: 65%;
+  }
+
+  .win-number-box {
+    display: flex;
+    align-items: flex-stretch;
+    justify-content: center;
+    background-color: rgb(0 0 0 / 50%);
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 5px 5px 15px 5px #000;
+    position: absolute;
+
+    &[level="jackpot"] {
+      color: #f70e06;
+      bottom: 10%;
+      box-shadow: -5px -5px 30px 5px #f70e06, 5px 5px 30px 5px #f70e06;
+    }
+
+    &[level="secondPrize"] {
+      color: #e93eee;
+      bottom: 10%;
+      box-shadow: -5px -5px 30px 5px #e93eee, 5px 5px 30px 5px #e93eee;
+    }
+
+    &[level="thirdPrize"] {
+      color: #3881e0;
+      bottom: 25%;
+      box-shadow: 0 0 10px 5px #3881e0;
+    }
+
+    &[level="fourthPrize"] {
+      color: #39e743;
+      bottom: 25%;
+      box-shadow: 0 0 10px 5px #39e743;
+    }
+
+    &[level="fifthPrize"] {
+      color: #f2f3f4;
+      bottom: 30%;
+      box-shadow: 0 0 10px 5px #f2f3f4;
+    }
+
+    &[level="sixthPrize"] {
+      color: #f2f3f4;
+      bottom: 30%;
+      box-shadow: 0 0 10px 5px #f2f3f4;
+    }
+  }
+}
+
+.text-animation-box {
+  position: absolute;
+  height: 30%;
+  width: 60%;
+  font-size: 3.5em;
+  color: white;
+
+  &[level="jackpot"] {
+    top: 5%;
+  }
+
+  &[level="secondPrize"] {
+    top: 5%;
+  }
+
+  &[level="thirdPrize"] {
+    bottom: -10%;
+  }
+
+  &[level="fourthPrize"] {
+    bottom: -10%;
+  }
+
+  &[level="fifthPrize"] {
+    bottom: -10%;
+  }
+
+  &[level="sixthPrize"] {
+    bottom: -10%;
+  }
+}

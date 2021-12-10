@@ -3,8 +3,10 @@
         "CAMBRIAB",
         "CAMBRIAZ",
         "TTFB",
+        "inser",
         "opentype",
         "stylelint",
+        "unmount",
         "welldone"
     ],
     "explorer.compactFolders": false

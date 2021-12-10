@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 // Components
 import Space from './ui/Space';
 import FlipNum from './flipNum/FlipNum';
+import GoldAnimation from './ui/GoldAnimation';
 
 // Utils
 import {
@@ -24,13 +25,13 @@ import {
 import styles from './JackpotContent.module.scss';
 
 const JackpotContent = () => {
-  console.log('content');
   // Redux
   const { jackpotData } = useSelector((state) => state.jackpot);
   const { media: pointText } = useSelector((state) => state.mediaQuery);
 
   // Ref
   const fontSizeRef = useRef([]);
+  const fontColorRef = useRef([]);
 
   const getFontSize = useCallback((mediaQueryText, level) => {
     switch (mediaQueryText) {
@@ -60,6 +61,11 @@ const JackpotContent = () => {
     }
   }, []);
 
+  const getFontColor = useCallback((level) => {
+    const currentColor = _getFlipNumFontColor(level);
+    fontColorRef.current.push(currentColor);
+  }, []);
+
   const FlipNumEl = jackpotData && Object.keys(jackpotData).map((el, index) => {
     const { level, jackpot } = jackpotData[el];
 
@@ -67,20 +73,18 @@ const JackpotContent = () => {
 
     if (!currentClassName) return;
 
-    const color = _getFlipNumFontColor(currentClassName);
-
     if (fontSizeRef.current.length < 4) {
       getFontSize(pointText, currentClassName);
+      getFontColor(currentClassName);
     }
 
     return (
       <div className={styles[currentClassName]} key={currentClassName}>
         <Space>
-          let fontSize;
           <span
             style={{
               fontSize: fontSizeRef.current[index],
-              color,
+              color: fontColorRef.current[index],
             }}
             className={styles.symbol}
           >
@@ -91,11 +95,14 @@ const JackpotContent = () => {
             point={pointText}
             count={_getAmount(jackpot)}
             level={currentClassName}
-            styles={{ fontSize: fontSizeRef.current[index] }}
-
+            styles={{
+              fontSize: fontSizeRef.current[index],
+              color: fontColorRef.current[index],
+            }}
           />
         </Space>
       </div>
+
     );
   });
 
@@ -112,9 +119,13 @@ const JackpotContent = () => {
   }, []);
 
   return (
-    <>
-      { FlipNumEl }
-    </>
+    <div className={styles.container}>
+      <GoldAnimation />
+      <div className={styles['content-box']}>
+        { FlipNumEl }
+      </div>
+
+    </div>
   );
 };
 

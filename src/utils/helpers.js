@@ -17,6 +17,31 @@ export const _getLevelClassName = (level) => {
   }
 };
 
+export const _getLevelShortText = (level) => {
+  switch (level) {
+    case 'jackpot':
+      return 'JP1';
+
+    case 'secondPrize':
+      return 'JP2';
+
+    case 'thirdPrize':
+      return 'JP3';
+
+    case 'fourthPrize':
+      return 'JP4';
+
+    case 'fifthPrize':
+      return 'JP5';
+
+    case 'sixthPrize':
+      return 'JP6';
+
+    default:
+      return null;
+  }
+};
+
 export const _getFlipNumFontSize = (level) => {
   switch (level) {
     case 'jackpot':
@@ -75,7 +100,6 @@ export const _getFlipNumFontSizeSmallScreen = (level) => {
 };
 
 export const _getFlipNumFontSizeMediumScreen = (level) => {
-  console.log('call medium');
   switch (level) {
     case 'jackpot':
       return '11em';
@@ -142,4 +166,12 @@ export const _getFlipNumFontColor = (level) => {
 export const _getAmount = (amount) => {
   const formatAmount = (parseFloat(amount).toFixed(3) + 1) * 1;
   return formatAmount;
+};
+
+export const _splitAmountToStr = (amount) => {
+  if (!amount) return;
+
+  const amountStr = String(amount);
+  const formatAmountText = amountStr.substring(0, amountStr.length - 2);
+  return formatAmountText;
 };

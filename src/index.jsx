@@ -2,18 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+// Toast
+import { ToastContainer } from 'react-toastify';
+
 // Components
 import App from './App';
 import store from './store';
 
 // Style
 import './sass/index.scss';
-
+import './sass/react-transition-group.scss';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <ToastContainer pauseOnFocusLoss={false} toastClassName="dark-toast" />
+
       <App />
     </Provider>
   </React.StrictMode>,
