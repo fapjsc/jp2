@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 // Components
 import Space from './ui/Space';
-import FlipNum from './flipNum/FlipNum';
+import FlipNum from './flip-num/FlipNum';
 import GoldAnimation from './ui/GoldAnimation';
 
 // Utils
@@ -124,7 +124,6 @@ const JackpotContent = () => {
       <div className={styles['content-box']}>
         { FlipNumEl }
       </div>
-
     </div>
   );
 };

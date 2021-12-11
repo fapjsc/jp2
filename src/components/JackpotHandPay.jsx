@@ -19,8 +19,8 @@ const JackpotHandPay = ({ uuid, insertId, cashInStatus }) => {
   const { status, error } = useSelector((state) => state.handPay);
 
   useEffect(() => {
-    if (error) setEnableBtn(true);
-  }, [error]);
+    if (cashInStatus === 'fail') setEnableBtn(true);
+  }, [cashInStatus]);
 
   const onClickHandler = () => {
     setEnableBtn(false);
@@ -36,12 +36,12 @@ const JackpotHandPay = ({ uuid, insertId, cashInStatus }) => {
       return '派彩失敗, 再試一次';
     }
 
-    if (status === 'pending') {
-      return '請稍等...';
-    }
-
     if (cashInStatus === 'success') {
       return '派彩成功';
+    }
+
+    if (status === 'pending' || !enableBtn) {
+      return '請稍等...';
     }
 
     return '手動派彩';

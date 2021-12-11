@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import FlipNum from './flipNum/FlipNum';
+import FlipNum from './flip-num/FlipNum';
 import TextAnimation from './ui/TextAnimation';
 import Firework from './ui/Firework';
 import JackpotHandPay from './JackpotHandPay';
@@ -42,7 +42,6 @@ const JackpotPrizeAnimation = ({ playAnimationItem }) => {
 
   return (
     <div className={styles.container}>
-
       <div level={playAnimationItem?.level} className={styles['animation-box']}>
         <div
           level={playAnimationItem?.level}
@@ -72,23 +71,18 @@ const JackpotPrizeAnimation = ({ playAnimationItem }) => {
             }}
           />
         </div>
-
         <Firework level={playAnimationItem?.level} />
-
       </div>
-
       <JackpotHandPay
         cashInStatus={playAnimationItem.cashInStatus}
         uuid={playAnimationItem.id}
         insertId={playAnimationItem.inserId}
       />
-
     </div>
   );
 };
 
 JackpotPrizeAnimation.propTypes = {
-
   playAnimationItem: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.string,

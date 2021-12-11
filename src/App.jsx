@@ -38,12 +38,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <main>
       <OverView />
       <UseAudio />
       <JackpotToast />
       <ServiceToast />
-    </div>
+    </main>
   );
 };
 
